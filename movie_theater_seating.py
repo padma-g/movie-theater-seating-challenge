@@ -56,6 +56,7 @@ class MovieTheaterSeating():
     main()
         Main function to generate the reservations
     """
+    
     def __init__(self):
         """
         Parameters
