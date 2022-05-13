@@ -1,3 +1,5 @@
+import sys
+
 class MovieTheaterSeating():
     def __init__(self):
         self.num_rows = 10
@@ -97,7 +99,10 @@ class MovieTheaterSeating():
             print(res_id + " " + res_seats)
 
     def main(self):
-        file_path = input("Enter input file name: ")
+        print("Enter input file name: ")
+        file_path = sys.argv[1]
+        if len(sys.argv) > 2:
+            raise Exception("Too many arguments provided")
         self.parse_input(file_path)
 
 if __name__ == "__main__":
