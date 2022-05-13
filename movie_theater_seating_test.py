@@ -51,6 +51,8 @@ class TestMovieTheaterSeating(unittest.TestCase):
         self.assertEqual(result1, "J1 J2 J3 J4 J5 J6 J7 J8 J9")
         self.assertEqual(result2, "J13 J14 J15 J16 J17 J18 J19 J20")
         self.assertEqual(result3, "I1 I2 I3 I4 I5")
+        with self.assertRaises(Exception):
+            self.movie_theater.find_best_seats(21, "R004")
 
     def test_parse_input(self):
         with self.assertRaises(Exception):
