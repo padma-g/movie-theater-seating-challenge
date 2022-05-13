@@ -306,9 +306,11 @@ class MovieTheaterSeating():
         """
         # Map of reservation ID to number of seats requested
         res_list = {}
+        # Open the file at the filepath
         with open(file_path, 'r') as f:
             # Split the file on newlines
             reservations = f.read().split('\n')
+        # Close the file
         f.close()
         # For each reservation (line) in the file
         for res in reservations:
@@ -332,6 +334,7 @@ class MovieTheaterSeating():
                 res_id = res_split[0]
                 if res_id in self.reservation_ids:
                     raise Exception("Reservation already made")
+                # Add ID to set of unique IDs if it is not already there
                 self.reservation_ids.add(res_id)
                 # Get the number of seats in the request
                 num_seats_reserved = int(res_split[1])
