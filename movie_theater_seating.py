@@ -4,7 +4,7 @@ Date: 5/13/2022
 Description: This script generates movie theater seat assignments given
 an input file with movie theater reservation requests.
 @input_file     filepath to the txt file with the reservation requests
-python3 movie_theater_seating.py input_file
+python3 movie_theater_seating.py <input_file>
 '''
 
 import sys
@@ -56,7 +56,7 @@ class MovieTheaterSeating():
     main()
         Main function to generate the reservations
     """
-    
+
     def __init__(self):
         """
         Parameters
