@@ -5,6 +5,7 @@ class MovieTheaterSeating():
     def __init__(self):
         self.num_rows = 10
         self.seats_per_row = 20
+        self.space_between_res = 3
         self.available_seats = self.num_rows * self.seats_per_row
         self.seating_map = self.generate_theater_map()
         self.reservation_details = {}
@@ -37,11 +38,11 @@ class MovieTheaterSeating():
         row_seats = self.seating_map[row_id]
         reserved = False
         if len(row_seats) > 0:
-            if len(row_seats) == num_seats_reserved or len(row_seats) < num_seats_reserved + 3:
+            if len(row_seats) == num_seats_reserved or len(row_seats) < num_seats_reserved + self.space_between_res:
                 for i in range(0, num_seats_reserved):
                     del row_seats[0]
-            elif len(row_seats) >= num_seats_reserved + 3:
-                for i in range(0, num_seats_reserved + 3):
+            elif len(row_seats) >= num_seats_reserved + self.space_between_res:
+                for i in range(0, num_seats_reserved + self.space_between_res):
                     del row_seats[0]
             reserved = True
         return reserved
