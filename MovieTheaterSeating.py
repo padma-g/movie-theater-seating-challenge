@@ -10,7 +10,7 @@ class MovieTheaterSeating():
     def generate_rows(self):
         seats = []
         for i in range(0, self.seats_per_row):
-            seats.append(i+1)
+            seats.append(i + 1)
         return seats
 
     def generate_theater_map(self):
@@ -24,10 +24,10 @@ class MovieTheaterSeating():
     def find_closest_fit(self, num_seats_reserved):
         minimum_size = float('Inf')
         row_id = 'J'
-        for key, val in self.seating_map.items():
-            if len(val) - num_seats_reserved < minimum_size and len(val) - num_seats_reserved >= 0:
-                minimum_size = len(val) - num_seats_reserved
-                row_id = key
+        for id, row_seats in self.seating_map.items():
+            if len(row_seats) - num_seats_reserved < minimum_size and len(row_seats) - num_seats_reserved >= 0:
+                minimum_size = len(row_seats) - num_seats_reserved
+                row_id = id
         return row_id
 
     def update_available_seats(self, row_id, num_seats_reserved):
@@ -72,8 +72,10 @@ class MovieTheaterSeating():
         f.close()
         for res in reservations:
             res_split = res.split(' ')
-            if len(res_split) < 2 or len(res_split) > 2:
-                raise Exception("Incorrect parameters")
+            if len(res_split) > 2:
+                raise Exception("Too many parameters")
+            if len(res_split) < 2:
+                raise Exception("Too few parameters")
             if res_split[1] == "" or res_split[1] == " " or not res_split[1].isnumeric():
                 raise Exception("Number of seats requested is invalid")
             if int(res_split[1]) <= 0:
@@ -91,8 +93,8 @@ class MovieTheaterSeating():
         self.print_output()
 
     def print_output(self):
-        for k, v in self.reservation_details.items():
-            print(k + " " + v)
+        for res_id, res_seats in self.reservation_details.items():
+            print(res_id + " " + res_seats)
 
     def main(self):
         file_path = input("Enter input file name: ")
