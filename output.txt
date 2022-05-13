@@ -319,3 +319,10 @@ R0029 D15 D16
 R0030 Reservation cannot be made, not enough seats available
 R0031 F20
 R001 J1 J2
+R001 J1 J2
+R001 J1 J2
+R001 J1 J2
+R001 J1 J2
+R001 J1 J2
+R001 J1 J2
+R001 J1 J2

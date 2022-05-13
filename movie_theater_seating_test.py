@@ -70,7 +70,7 @@ class TestMovieTheaterSeating(unittest.TestCase):
 
     def test_write_output(self):
         result = self.movie_theater.write_output()
-        self.assertEqual(result, "/Users/padma/Desktop/walmart-interview/output.txt")
+        self.assertEqual(result, str(THIS_DIR.parent.resolve() / "output.txt"))
 
 if __name__ == '__main__':
     unittest.main()
