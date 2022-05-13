@@ -99,7 +99,6 @@ class MovieTheaterSeating():
             print(res_id + " " + res_seats)
 
     def main(self):
-        print("Enter input file name: ")
         file_path = sys.argv[1]
         if len(sys.argv) > 2:
             raise Exception("Too many arguments provided")
