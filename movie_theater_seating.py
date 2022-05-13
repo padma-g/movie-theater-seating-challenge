@@ -24,7 +24,7 @@ class MovieTheaterSeating():
             letter = chr(ord(letter) - 1)
         return theater_map
 
-    def find_closest_fit(self, num_seats_reserved):
+    def find_closest_row(self, num_seats_reserved):
         minimum_size = float('Inf')
         row_id = 'J'
         for id, row_seats in self.seating_map.items():
@@ -48,19 +48,19 @@ class MovieTheaterSeating():
 
     def print_reservation(self, row_seats, num_seats_reserved, row_id):
         result = ""
-        if len(row_seats) > 0:
+        if num_seats_reserved > len(row_seats):
+            result = "Reservation cannot be made, not enough seats available"
+        elif len(row_seats) > 0:
             for i in range(0, num_seats_reserved - 1):
                 result += str(row_id) + str(row_seats[i]) + ' '
             result += str(row_id) + str(row_seats[num_seats_reserved - 1])
-        else:
-            result = "Reservation cannot be made, not enough seats available"
         return result
 
     def find_best_seats(self, num_seats_reserved, res_id):
         if num_seats_reserved > self.available_seats or num_seats_reserved > self.seats_per_row:
             raise Exception("Reservation cannot be made, too many seats requested")
         else:
-            row_id = self.find_closest_fit(num_seats_reserved)
+            row_id = self.find_closest_row(num_seats_reserved)
             row_seats = self.seating_map[row_id]
             self.reservation_details[res_id] = self.print_reservation(row_seats, num_seats_reserved, row_id)
             reservation_made = self.update_available_seats(row_id, num_seats_reserved)
@@ -100,7 +100,9 @@ class MovieTheaterSeating():
         with open(output_path, 'a') as f:
             for res_id, res_seats in self.reservation_details.items():
                 f.write(res_id + " " + res_seats + "\n")
-        print(os.path.abspath(output_path))
+        abs_path = os.path.abspath(output_path)
+        print(abs_path)
+        return abs_path
 
     def main(self):
         file_path = sys.argv[1]
