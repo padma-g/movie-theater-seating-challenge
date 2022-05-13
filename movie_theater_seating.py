@@ -149,7 +149,7 @@ class MovieTheaterSeating():
             # If the number of available seats in the row minus the number
             # of seats requested is less than the minimum space needed to
             # seat the reservation
-            # OR
+            # AND
             # If the number of available seats in the minus the number of seats
             # requested is equal to 0
             if (len(row_seats) - num_seats_reserved < minimum_space) and \
