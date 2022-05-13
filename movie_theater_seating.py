@@ -19,7 +19,7 @@ class MovieTheaterSeating():
 
     def generate_theater_map(self):
         theater_map = {}
-        letter = chr(ord('@') + self.num_rows + 1)
+        letter = chr(ord('@') + self.num_rows)
         for i in range(0, self.num_rows):
             theater_map[letter] = self.generate_rows()
             letter = chr(ord(letter) - 1)
@@ -27,7 +27,7 @@ class MovieTheaterSeating():
 
     def find_closest_row(self, num_seats_reserved):
         minimum_size = float('Inf')
-        row_id = chr(ord('@') + self.num_rows + 1)
+        row_id = chr(ord('@') + self.num_rows)
         for id, row_seats in self.seating_map.items():
             if len(row_seats) - num_seats_reserved < minimum_size and len(row_seats) - num_seats_reserved >= 0:
                 minimum_size = len(row_seats) - num_seats_reserved
@@ -101,6 +101,7 @@ class MovieTheaterSeating():
         with open(output_path, 'w') as f:
             for res_id, res_seats in self.reservation_details.items():
                 f.write(res_id + " " + res_seats + "\n")
+        f.close()
         abs_path = os.path.abspath(output_path)
         print(abs_path)
         return abs_path
