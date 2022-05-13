@@ -1,4 +1,4 @@
-# Walmart Interview: Movie Theater Seating Challenge
+# Movie Theater Seating Challenge
 Padma Gundapaneni
 
 This program takes an input file of movie theater reservation requests and assigns seats to satisfy customers and maximize the number of occupied seats.
@@ -18,17 +18,17 @@ This program is based on the following assumptions.
 Python 3.8+ access from the terminal
 
 ### Installation
-Clone the git repository and open it. Navigate to the `walmart-interview` folder.
+Clone the git repository and open it. Navigate to the `movie-theater-seating-challenge` folder.
 
 ### Input/Output Examples
 Sample input and output can be found in ```test_data/input.txt``` and ```test_data/output.txt``` locations of this repository.
 
 ### Executing Program
-Open your terminal window. The program takes in one command line argument, the input file location. For the input file location, you can use ```input.txt```. Run the following command from the `walmart-interview` directory.
+Open your terminal window. The program takes in one command line argument, the input file location. For the input file location, you can use ```input.txt```. Run the following command from the `movie-theater-seating-challenge` directory.
 
 ```python3 movie_theater_seating.py input.txt```
 
 ### Executing Tests
-To run the tests, from the `walmart-interview` directory, execute the following command in your terminal.
+To run the tests, from the `movie-theater-seating-challenge` directory, execute the following command in your terminal.
 
 ```python3 movie_theater_seating_test.py  ```
