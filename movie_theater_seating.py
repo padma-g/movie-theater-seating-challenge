@@ -18,7 +18,7 @@ class MovieTheaterSeating():
 
     def generate_theater_map(self):
         theater_map = {}
-        letter = chr(ord('J'))
+        letter = chr(ord('`') + self.num_rows)
         for i in range(0, self.num_rows):
             theater_map[letter] = self.generate_rows()
             letter = chr(ord(letter) - 1)
