@@ -1,4 +1,5 @@
 import sys
+import os
 
 class MovieTheaterSeating():
     def __init__(self):
@@ -92,11 +93,14 @@ class MovieTheaterSeating():
                 num_seats_reserved = int(res_split[1])
                 res_list[res_id] = num_seats_reserved
                 self.find_best_seats(num_seats_reserved, res_id)
-        self.print_output()
+        self.write_output()
 
-    def print_output(self):
-        for res_id, res_seats in self.reservation_details.items():
-            print(res_id + " " + res_seats)
+    def write_output(self):
+        output_path = os.path.join(os.path.dirname(__file__), "output.txt")
+        with open(output_path, 'a') as f:
+            for res_id, res_seats in self.reservation_details.items():
+                f.write(res_id + " " + res_seats + "\n")
+        print(os.path.abspath(output_path))
 
     def main(self):
         file_path = sys.argv[1]
