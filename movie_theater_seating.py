@@ -13,7 +13,7 @@ import os
 class MovieTheaterSeating():
     """
     A class used to represent a movie theater.
-    ...
+    
     Attributes
     ----------
     num_rows : int
