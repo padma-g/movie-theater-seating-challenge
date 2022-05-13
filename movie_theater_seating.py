@@ -257,6 +257,7 @@ class MovieTheaterSeating():
             res_details : str
             A string with the reservation details for this reservation ID
         """
+        # If too many seats are requested
         if num_seats_reserved > self.available_seats or num_seats_reserved > \
             self.seats_per_row:
             raise Exception("Reservation cannot be made, too many seats " + \
