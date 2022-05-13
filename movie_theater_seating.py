@@ -97,7 +97,7 @@ class MovieTheaterSeating():
 
     def write_output(self):
         output_path = os.path.join(os.path.dirname(__file__), "output.txt")
-        with open(output_path, 'a') as f:
+        with open(output_path, 'w') as f:
             for res_id, res_seats in self.reservation_details.items():
                 f.write(res_id + " " + res_seats + "\n")
         abs_path = os.path.abspath(output_path)
