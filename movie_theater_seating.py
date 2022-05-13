@@ -26,7 +26,7 @@ class MovieTheaterSeating():
 
     def find_closest_row(self, num_seats_reserved):
         minimum_size = float('Inf')
-        row_id = 'J'
+        row_id = chr(ord('@') + self.num_rows + 1)
         for id, row_seats in self.seating_map.items():
             if len(row_seats) - num_seats_reserved < minimum_size and len(row_seats) - num_seats_reserved >= 0:
                 minimum_size = len(row_seats) - num_seats_reserved
