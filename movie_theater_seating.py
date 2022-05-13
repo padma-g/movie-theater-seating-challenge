@@ -116,7 +116,7 @@ class MovieTheaterSeating():
             A map of seat numbers by row ID
         """
         theater_map = {}
-        # Get the capital letter ASCII character for the farthest row from the
+        # Get the capital letter ASCII character for the row farthest from the
         # screen
         letter = chr(ord('@') + self.num_rows)
         for i in range(0, self.num_rows):
